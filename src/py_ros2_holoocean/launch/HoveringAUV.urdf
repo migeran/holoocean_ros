@@ -1,0 +1,394 @@
+<?xml version="1.0" ?>
+<robot name="HoveringAUV">
+    <material name="transparent_white">
+        <color rgba="1 1 1 0.5"/>
+    </material>
+    <material name="white">
+        <color rgba="1 1 1 1"/>
+    </material>
+
+    <!-- NOTE: Unreal to Gazebo coordinates: flip the y axis -->
+
+    <link name="base_link"></link>
+
+    <joint name="submarine_body_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="submarine_body"/>
+        <origin xyz="-0.07 0.2 3.2"/>
+    </joint>
+
+    <link name="submarine_body">
+        <visual>
+            <geometry>
+                <box size="8.0 6.0 4.5"/>
+            </geometry>
+            <material name="transparent_white"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="8.0 6.0 4.5"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin rpy="0 0 0" xyz="-0.8025 0 -0.021"/>
+            <mass value="31.02"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial>
+    </link>
+
+    <joint name="front_left_horizontal_thruster_joint" type="fixed">
+        <parent link="submarine_body"/>
+        <child link="front_left_horizontal_thruster"/>
+        <origin xyz="0.739 1.823 -0.021" rpy="0 1.5708 -0.785398"/>
+    </joint>
+
+    <link name="front_left_horizontal_thruster">
+        <visual>
+            <geometry>
+                <cylinder length="1.0" radius="0.5"/>
+            </geometry>
+            <material name="white"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder length="1.0" radius="0.5"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <mass value="0"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial>
+    </link>
+
+    <joint name="front_right_horizontal_thruster_joint" type="fixed">
+        <parent link="submarine_body"/>
+        <child link="front_right_horizontal_thruster"/>
+        <origin xyz="0.739 -1.823 -0.021" rpy="0 1.5708 0.785398"/>
+    </joint>
+
+    <link name="front_right_horizontal_thruster">
+        <visual>
+            <geometry>
+                <cylinder length="1.0" radius="0.5"/>
+            </geometry>
+            <material name="white"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder length="1.0" radius="0.5"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <mass value="0"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial>
+    </link>
+
+    <joint name="back_left_horizontal_thruster_joint" type="fixed">
+        <parent link="submarine_body"/>
+        <child link="back_left_horizontal_thruster"/>
+        <origin xyz="-2.064 1.823 -0.021" rpy="0 1.5708 0.785398"/>
+    </joint>
+
+    <link name="back_left_horizontal_thruster">
+        <visual>
+            <geometry>
+                <cylinder length="1.0" radius="0.5"/>
+            </geometry>
+            <material name="white"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder length="1.0" radius="0.5"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <mass value="0"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial>
+    </link>
+
+    <joint name="back_right_horizontal_thruster_joint" type="fixed">
+        <parent link="submarine_body"/>
+        <child link="back_right_horizontal_thruster"/>
+        <origin xyz="-2.064 -1.823 -0.021" rpy="0 1.5708 -0.785398"/>
+    </joint>
+
+    <link name="back_right_horizontal_thruster">
+        <visual>
+            <geometry>
+                <cylinder length="1.0" radius="0.5"/>
+            </geometry>
+            <material name="white"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder length="1.0" radius="0.5"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <mass value="0"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial>
+    </link>
+
+    <joint name="front_left_vertical_thruster_joint" type="fixed">
+        <parent link="submarine_body"/>
+        <child link="front_left_vertical_thruster"/>
+        <origin xyz="1.818 2.214 -0.4"/>
+    </joint>
+
+    <link name="front_left_vertical_thruster">
+        <visual>
+            <geometry>
+                <cylinder length="1.0" radius="0.5"/>
+            </geometry>
+            <material name="white"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder length="1.0" radius="0.5"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <mass value="0"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial>
+    </link>
+
+    <joint name="front_right_vertical_thruster_joint" type="fixed">
+        <parent link="submarine_body"/>
+        <child link="front_right_vertical_thruster"/>
+        <origin xyz="1.818 -2.214 -0.4"/>
+    </joint>
+
+    <link name="front_right_vertical_thruster">
+        <visual>
+            <geometry>
+                <cylinder length="1.0" radius="0.5"/>
+            </geometry>
+            <material name="white"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder length="1.0" radius="0.5"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <mass value="0"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial>
+    </link>
+
+    <joint name="back_left_vertical_thruster_joint" type="fixed">
+        <parent link="submarine_body"/>
+        <child link="back_left_vertical_thruster"/>
+        <origin xyz="-3.143 2.214 -0.4"/>
+    </joint>
+
+    <link name="back_left_vertical_thruster">
+        <visual>
+            <geometry>
+                <cylinder length="1.0" radius="0.5"/>
+            </geometry>
+            <material name="white"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder length="1.0" radius="0.5"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <mass value="0"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial>
+    </link>
+
+    <joint name="back_right_vertical_thruster_joint" type="fixed">
+        <parent link="submarine_body"/>
+        <child link="back_right_vertical_thruster"/>
+        <origin xyz="-3.143 -2.214 -0.4"/>
+    </joint>
+
+    <link name="back_right_vertical_thruster">
+        <visual>
+            <geometry>
+                <cylinder length="1.0" radius="0.5"/>
+            </geometry>
+            <material name="white"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder length="1.0" radius="0.5"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <mass value="0"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial>
+    </link>
+
+    <joint name="left_camera_socket_joint" type="fixed">
+        <parent link="submarine_body"/>
+        <child link="left_camera_socket"/>
+        <origin xyz="2.67 1.1 1.65" rpy="0 1.5708 0"/>
+    </joint>
+
+    <link name="left_camera_socket">
+        <visual>
+            <geometry>
+                <cylinder length="1.0" radius="0.5"/>
+            </geometry>
+            <material name="white"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder length="1.0" radius="0.5"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <mass value="0"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial>
+    </link>
+
+    <joint name="right_camera_socket_joint" type="fixed">
+        <parent link="submarine_body"/>
+        <child link="right_camera_socket"/>
+        <origin xyz="2.67 -1.15 1.65" rpy="0 1.5708 0"/>
+    </joint>
+
+    <link name="right_camera_socket">
+        <visual>
+            <geometry>
+                <cylinder length="1.0" radius="0.5"/>
+            </geometry>
+            <material name="white"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder length="1.0" radius="0.5"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <mass value="0"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial>
+    </link>
+
+    <joint name="sonar_socket_joint" type="fixed">
+        <parent link="submarine_body"/>
+        <child link="sonar_socket"/>
+        <origin xyz="3.67 -2.1 -0.4"/>
+    </joint>
+
+    <link name="sonar_socket">
+        <visual>
+            <geometry>
+                <sphere radius="0.5"/>
+            </geometry>
+            <material name="white"/>
+        </visual>
+        <collision>
+            <geometry>
+                <sphere radius="0.5"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <mass value="0"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial>
+    </link>
+
+    <joint name="imu_socket_joint" type="fixed">
+        <parent link="submarine_body"/>
+        <child link="imu_socket"/>
+        <origin xyz="-1.5000001 -0.7 0.7"/>
+    </joint>
+
+    <link name="imu_socket">
+        <visual>
+            <geometry>
+                <box size="1 1 1"/>
+            </geometry>
+            <material name="white"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="1 1 1"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <mass value="0"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial>
+    </link>
+
+    <joint name="dvl_socket_joint" type="fixed">
+        <parent link="submarine_body"/>
+        <child link="dvl_socket"/>
+        <origin xyz="-3.33 -0.05 -2.25" rpy="0 1.5708 0"/>
+    </joint>
+
+    <link name="dvl_socket">
+        <visual>
+            <geometry>
+                <cylinder length="1.0" radius="0.5"/>
+            </geometry>
+            <material name="white"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder length="1.0" radius="0.5"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <mass value="0"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial>
+    </link>
+
+    <joint name="depth_socket_joint" type="fixed">
+        <parent link="submarine_body"/>
+        <child link="depth_socket"/>
+        <origin xyz="-2.0000001 -0.18 -1.4" rpy="0 1.5708 0"/>
+    </joint>
+
+    <link name="depth_socket">
+        <visual>
+            <geometry>
+                <cylinder length="0.5" radius="0.5"/>
+            </geometry>
+            <material name="white"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder length="0.5" radius="0.5"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <mass value="0"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial>
+    </link>
+
+    <!--
+    # TODO:
+        # Add sensors to the model.
+    -->
+
+</robot>
